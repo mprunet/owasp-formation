@@ -1,0 +1,68 @@
+<div>
+    <h2 id="page-heading">
+        <span>Owasp Comments</span>
+        <button type="button" (click)="fileInput.click()" class="btn btn-primary" >
+            <span>Import depuis XML</span>
+            <input #fileInput type="file" (change)="handleFileInput($event)" id="uploadXml" value="Import" multiple style="display:none;" />
+        </button>
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-owasp-comments" [routerLink]="['/owasp-comments/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span>
+            Create a new Owasp Comments
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="owaspComments?.length === 0">
+        <span>No owaspComments found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="owaspComments && owaspComments.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span>ID</span></th>
+                    <th scope="col" ><span>Comment Date</span></th>
+                    <th scope="col" ><span>Comment</span></th>
+                    <th scope="col" ><span>Author</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let owaspComments of owaspComments ;trackBy: trackId">
+                    <td><a [routerLink]="['/owasp-comments', owaspComments.id, 'view']">{{ owaspComments.id }}</a></td>
+                    <td>{{ owaspComments.commentDate | date:'mediumDate' }}</td>
+                    <td>{{ owaspComments.comment }}</td>
+                    <td>{{ owaspComments.author }}</td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/owasp-comments', owaspComments.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/owasp-comments', owaspComments.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(owaspComments)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

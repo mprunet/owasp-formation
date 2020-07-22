@@ -1,0 +1,64 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-mes-contacts-heading">Create or edit a Mes Contacts</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_nom">Nom</label>
+                    <input type="text" class="form-control" name="nom" id="field_nom"
+                           formControlName="nom"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_prenom">Prenom</label>
+                    <input type="text" class="form-control" name="prenom" id="field_prenom"
+                           formControlName="prenom"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_email">Email</label>
+                    <input type="text" class="form-control" name="email" id="field_email"
+                           formControlName="email"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_fixe">Fixe</label>
+                    <input type="text" class="form-control" name="fixe" id="field_fixe"
+                           formControlName="fixe"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" for="field_mobile">Mobile</label>
+                    <input type="text" class="form-control" name="mobile" id="field_mobile"
+                           formControlName="mobile"/>
+                </div>
+
+                <div class="form-group" style="display:none">
+                    <label class="form-control-label" for="field_user">User</label>
+                    <select class="form-control" id="field_user" name="user" formControlName="user">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="userOption.id === editForm.get('user')!.value?.id ? editForm.get('user')!.value : userOption" *ngFor="let userOption of users; trackBy: trackById">{{ userOption.login }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span>Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span>Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

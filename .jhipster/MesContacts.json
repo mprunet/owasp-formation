@@ -1,0 +1,46 @@
+{
+  "fluentMethods": true,
+  "clientRootFolder": "",
+  "relationships": [
+    {
+      "relationshipName": "user",
+      "otherEntityName": "user",
+      "relationshipType": "many-to-one",
+      "otherEntityField": "login",
+      "ownerSide": true,
+      "otherEntityRelationshipName": "mesContacts"
+    }
+  ],
+  "fields": [
+    {
+      "fieldName": "nom",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "prenom",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "email",
+      "fieldType": "String",
+      "fieldValidateRules": []
+    },
+    {
+      "fieldName": "fixe",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "mobile",
+      "fieldType": "String"
+    }
+  ],
+  "changelogDate": "20200722124205",
+  "dto": "no",
+  "searchEngine": false,
+  "service": "no",
+  "entityTableName": "mes_contacts",
+  "databaseType": "sql",
+  "readOnly": false,
+  "jpaMetamodelFiltering": false,
+  "pagination": "no"
+}

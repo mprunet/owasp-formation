@@ -1,0 +1,71 @@
+<div>
+    <h2 id="page-heading">
+        <span>{{path}}</span>
+        <br/>
+        <button type="button" (click)="fileInput.click()" class="btn btn-primary" >
+            <span>Upload a file</span>
+            <input #fileInput type="file" (change)="uploadFile($event)" id="uploadXml" value="Import" multiple style="display:none;" />
+        </button>
+        <button type="button" (click)="createDir()" class="btn btn-primary" >
+            <span>Create Directory</span>
+        </button>
+
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="remoteFiles?.length === 0">
+        <span>No remoteFiles found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="remoteFiles && remoteFiles.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span>File Type</span></th>
+                    <th scope="col" ><span>Name</span></th>
+                    <th scope="col" ><span>Modification</span></th>
+                    <th scope="col" ><span>Rights</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let remoteFile of remoteFiles ;trackBy: trackId">
+                    <td>
+                        <fa-icon icon="folder" *ngIf="remoteFile.fileType==directory"></fa-icon>
+                        <fa-icon icon="file" *ngIf="remoteFile.fileType!=directory"></fa-icon>
+                    </td>
+                    <td class="font-weight-bold" *ngIf="remoteFile.name==''">Parent Directory</td>
+                    <td *ngIf="remoteFile.name!=''">{{ remoteFile.name }}</td>
+                    <td>{{ remoteFile.modification | date:'mediumDate' }}</td>
+                    <td>{{ remoteFile.rights }}</td>
+                    <td class="text-right">
+                        <div class="btn-group">
+
+                            <button type="submit"
+                                    [routerLink]="['/remote-file']"
+                                    [queryParams]="{path: fullPath(remoteFile)}"
+                                    class="btn btn-info btn-sm"
+                                    *ngIf="remoteFile.fileType==directory"
+                            >
+                                <fa-icon icon="folder"></fa-icon>
+                                <span class="d-none d-md-inline">Browse</span>
+                            </button>
+                            <button type="submit"
+                                    (click)="downloadFile(remoteFile)"
+                                    class="btn btn-info btn-sm"
+                                    *ngIf="remoteFile.fileType!=directory"
+                            >
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline">View</span>
+                            </button>
+
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

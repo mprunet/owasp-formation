@@ -1,0 +1,46 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="remoteFile">
+            <h2><span>Remote File</span> {{ remoteFile.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span>Path</span></dt>
+                <dd>
+                    <span>{{ remoteFile.path }}</span>
+                </dd>
+                <dt><span>Name</span></dt>
+                <dd>
+                    <span>{{ remoteFile.name }}</span>
+                </dd>
+                <dt><span>Modification</span></dt>
+                <dd>
+                    <span>{{ remoteFile.modification }}</span>
+                </dd>
+                <dt><span>Rights</span></dt>
+                <dd>
+                    <span>{{ remoteFile.rights }}</span>
+                </dd>
+                <dt><span>File Type</span></dt>
+                <dd>
+                    <span>{{ remoteFile.fileType }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/remote-file', remoteFile.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

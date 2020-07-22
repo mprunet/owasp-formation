@@ -1,0 +1,28 @@
+{
+  "fluentMethods": true,
+  "clientRootFolder": "",
+  "relationships": [],
+  "fields": [
+    {
+      "fieldName": "commentDate",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "comment",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "author",
+      "fieldType": "String"
+    }
+  ],
+  "changelogDate": "20200720162055",
+  "dto": "no",
+  "searchEngine": false,
+  "service": "serviceClass",
+  "entityTableName": "owasp_comments",
+  "databaseType": "sql",
+  "readOnly": false,
+  "jpaMetamodelFiltering": false,
+  "pagination": "no"
+}

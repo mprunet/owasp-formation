@@ -1,0 +1,38 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="owaspComments">
+            <h2><span>Owasp Comments</span> {{ owaspComments.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span>Comment Date</span></dt>
+                <dd>
+                    <span>{{ owaspComments.commentDate }}</span>
+                </dd>
+                <dt><span>Comment</span></dt>
+                <dd>
+                    <span>{{ owaspComments.comment }}</span>
+                </dd>
+                <dt><span>Author</span></dt>
+                <dd>
+                    <span>{{ owaspComments.author }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/owasp-comments', owaspComments.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

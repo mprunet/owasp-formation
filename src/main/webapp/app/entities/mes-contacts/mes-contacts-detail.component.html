@@ -1,0 +1,46 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="mesContacts">
+            <h2><span>Mes Contacts</span> {{ mesContacts.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span>Nom</span></dt>
+                <dd>
+                    <span>{{ mesContacts.nom }}</span>
+                </dd>
+                <dt><span>Prenom</span></dt>
+                <dd>
+                    <span>{{ mesContacts.prenom }}</span>
+                </dd>
+                <dt><span>Email</span></dt>
+                <dd>
+                    <span>{{ mesContacts.email }}</span>
+                </dd>
+                <dt><span>Fixe</span></dt>
+                <dd>
+                    <span>{{ mesContacts.fixe }}</span>
+                </dd>
+                <dt><span>Mobile</span></dt>
+                <dd>
+                    <span>{{ mesContacts.mobile }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/mes-contacts', mesContacts.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
