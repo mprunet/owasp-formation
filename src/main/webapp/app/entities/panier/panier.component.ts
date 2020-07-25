@@ -6,7 +6,6 @@ import {HttpResponse} from "@angular/common/http";
 import {NgbModal} from "@ng-bootstrap/ng-bootstrap";
 import {PanierConfirmComponent} from "./panier-confirm.component";
 import {Order} from "./order";
-import {IRemoteFile} from "../../shared/model/remote-file.model";
 
 @Component({
   selector: 'jhi-panier',
