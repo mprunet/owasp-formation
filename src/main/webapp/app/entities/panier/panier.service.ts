@@ -23,6 +23,19 @@ export class PanierService {
       .get<IProduct[]>(this.resourceUrl+"/products", { observe: 'response' })
       .pipe(map((res: ProductArrayResponseType) => res));
   }
+  save(products: IPanierItem[]) : Observable<OrderResponseType> {
+    return this.http
+      .post<IOrder>(this.resourceUrl + "/save", products, { observe: 'response' })
+      .pipe(map((res: OrderResponseType) => res));
+
+  }
+
+  restore(products: IPanierItem[]) : Observable<OrderResponseType> {
+    return this.http
+      .post<IOrder>(this.resourceUrl + "/restore", products, { observe: 'response' })
+      .pipe(map((res: OrderResponseType) => res));
+
+  }
 
   order(products: IPanierItem[]) : Observable<OrderResponseType> {
     return this.http

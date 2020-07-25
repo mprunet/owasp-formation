@@ -1,6 +1,8 @@
 package org.owasp.psafix.devsec.domain;
 
-public class Product {
+import java.io.Serializable;
+
+public class Product implements Serializable {
     private int id;
     private String libelle;
     private int prixUnitaire;

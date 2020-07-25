@@ -34,15 +34,22 @@ export class PanierComponent implements OnInit {
   }
 
   save(): void{
-
+    this.panierService.save(this.items).subscribe((res: HttpResponse<Order>) => this.fillPanier(res));
   }
 
   restore(): void{
-
+    this.panierService.restore(this.items).subscribe((res: HttpResponse<Order>) => this.fillPanier(res));
   }
 
   order(): void {
     this.panierService.order(this.items).subscribe((res: HttpResponse<Order>) => this.confirm(res));
+  }
+
+  fillPanier(res: HttpResponse<Order>) :void {
+    if (res.body) {
+      this.items = res.body.items;
+      this.total = res.body.total;
+    }
   }
 
   confirm(res: HttpResponse<Order>) :void {
