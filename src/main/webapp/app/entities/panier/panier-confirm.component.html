@@ -1,0 +1,49 @@
+<h3 id="page-heading">
+    <span>Cette commande va être débitée sur votre prochaine facture</span>
+</h3>
+
+<div class="table-responsive" id="entities" *ngIf="order">
+    <table class="table table-striped" aria-describedby="page-heading">
+        <thead>
+        <tr>
+            <th scope="col" ><span>Produit</span></th>
+            <th scope="col" ><span>Quantit&eacute;</span></th>
+            <th scope="col" ><span>Prix Unitaire</span></th>
+            <th scope="col" ><span>Prix</span></th>
+            <th scope="col"></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let item of order.items">
+            <td>{{ item.product.libelle }}</td>
+            <td>{{ item.quantite }}</td>
+            <td>{{ item.product.prixUnitaire }}€</td>
+            <td>{{ item.quantite * item.product.prixUnitaire}}€</td>
+            <td class="text-right">
+                <div class="btn-group">
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<div *ngIf="order">
+    <h2 id="page-heading">
+        Total : {{order.total}} €
+    </h2>
+    <button id="jh-create-entity" class="btn btn-primary jh-create-entity create-panier" (click)="placeOrder();">
+        <fa-icon icon="shopping-cart"></fa-icon>
+        <span>
+            Passer la Commande
+        </span>
+    </button>
+    <button id="jh-create-entity" class="btn btn-danger btn-sm" (click)="cancel();">
+        <fa-icon icon="times"></fa-icon>
+        <span>
+            Annuler
+        </span>
+    </button>
+</div>
+<div>Toute commande est irréversible</div>
+
+

@@ -9,7 +9,6 @@ import { RemoteFileService } from './remote-file.service';
 import { RemoteFileDeleteDialogComponent } from './remote-file-delete-dialog.component';
 import {ActivatedRoute} from "@angular/router";
 import {FileType} from "../../shared/model/enumerations/file-type.model";
-import {IOwaspComments} from "../../shared/model/owasp-comments.model";
 import {RemoteFileNameDialogComponent} from "./remote-file-name-dialog.component";
 
 @Component({

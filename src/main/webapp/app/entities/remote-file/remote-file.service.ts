@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpParams, HttpResponse} from '@angular/common/http';
+import {HttpClient, HttpResponse} from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import * as moment from 'moment';
@@ -19,10 +19,7 @@ export class RemoteFileService {
 
   constructor(protected http: HttpClient) {}
 
-  query(thepath: string, req?: any): Observable<EntityArrayResponseType> {
-    /*const options: HttpParams = new HttpParams();
-    options.set('path', path);
-     */
+  query(thepath: string): Observable<EntityArrayResponseType> {
     const options = createRequestOption({'path': thepath});
     return this.http
       .get<IRemoteFile[]>(this.resourceUrl, { params: options, observe: 'response' })

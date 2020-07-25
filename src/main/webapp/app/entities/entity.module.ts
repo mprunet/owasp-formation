@@ -16,6 +16,10 @@ import { RouterModule } from '@angular/router';
         path: 'mes-contacts',
         loadChildren: () => import('./mes-contacts/mes-contacts.module').then(m => m.DevsecMesContactsModule),
       },
+      {
+        path: 'panier',
+        loadChildren: () => import('./panier/panier.module').then(m => m.DevSecPanierModule),
+      },
       /* jhipster-needle-add-entity-route - JHipster will add entity modules routes here */
     ]),
   ],
